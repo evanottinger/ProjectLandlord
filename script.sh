@@ -52,6 +52,7 @@ fi
 
 # Remove dots from domain name to be used in sqlite database table names
 safe_domain=${domain//[.]/dot}
+safe_domain=${safe_domain//[-]/dash}
 
 # Create a sqlite database in the current directory if it does not exist
 if [ ! -f "dnstwist.db" ]; then
