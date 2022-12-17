@@ -44,6 +44,12 @@ if ! [ -x "$(command -v dnstwist)" ]; then
   exit 1
 fi
 
+# Check if dnspython is installed
+if [ -z "$(pip list | grep dnspython)" ]; then
+  echo "dnspython is not installed. Please install dnspython and try again."
+  exit 1
+fi
+
 # Check if sqlite3 is installed
 if ! [ -x "$(command -v sqlite3)" ]; then
   echo "sqlite3 is not installed. Please install sqlite3 and try again."
